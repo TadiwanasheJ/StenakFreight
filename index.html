@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stenak Freight</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
+    <script src="index.js"></script>
+  </head>
+  <body>
+    <header>
+      <nav class="navbar">
+        <h2 class="logo"><a href="#">STENAK FREIGHT</a></h2>
+        <input type="checkbox" id="menu-toggler">
+        <label for="menu-toggler" id="hamburger-btn">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white" width="24px" height="24px">
+            <path d="M0 0h24v24H0z" fill="none"/>
+            <path d="M3 18h18v-2H3v2zm0-5h18V11H3v2zm0-7v2h18V6H3z"/>
+          </svg>
+        </label>
+        <ul class="all-links">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#portfolio">Portfolio</a></li>
+          <li><a href="#about">About Us</a></li>
+          <li><a href="#contact">Contact Us</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <section class="homepage" id="home">
+      <div class="content">
+        <div class="text">
+          <h1>Stenak Freight</h1>
+          <p>
+            For your customs clearing, shipping, warehousing facilities, consultancy services and <br> Freight Forwarding Services</p>
+        </div>
+        <a href="#portfolio">Our Services</a>
+      </div>
+    </section>
+
+    <section class="portfolio" id="portfolio">
+      <h2>Our Portfolio</h2>
+      <p>Take a look at some of our loads.</p>
+      <ul class="cards">
+        <li class="card">
+          <img src="Stenak/1.jpg" alt="img">
+          <h3>One Ton Truck</h3>
+          <p>Full load, reliable and safe.</p>
+        </li>
+        <li class="card">
+          <img src="Stenak/9.jpg" alt="img">
+          <h3>Super Link Truck</h3>
+        </li>
+        <li class="card">
+          <img src="Stenak/3.jpg" alt="img">
+          <h3>Eight Ton Truck</h3>
+        </li>
+        <li class="card">
+          <img src="Stenak/4.jpg" alt="img">
+          <h3>Tri Axle Truck</h3>
+        </li>
+        <li class="card">
+          <img src="Stenak/6.jpg" alt="img">
+          <h3> Fourteen Ton Truck</h3>
+        </li>
+        <li class="card">
+          <img src="Stenak/Business Card.jpg" alt="img">
+          <h3>Our Business Card</h3>
+        </li>
+      </ul>
+    </section>
+
+    <section class="about" id="about">
+      <h2>About Us</h2>
+      <p>We do customs clearing, shipping and freight forwarding.</p>
+      <div class="row mission-vision">
+        <h3>Our Mission</h3>
+        <p>We are committed to supporting our clients' requirements by delivering cost effective,, best class transportation, reliable, and high quality solutions of strategic value, while maintaining a challenging and rewarding work environment for our greatest asset, our employees.</p>
+        <h3>Our Vision</h3>
+        <p>Our vision is to become the go-to destination for transportation, known for our fast and reliable. We aspire to inspire and enable people to embrace the beauty of logistics.</p>
+      </div>
+      <div class="row team">
+        <h3>Team</h3>
+        <ul>
+          <li>Stanley Nyarugwe - Marketing Executive</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="contact" id="contact">
+      <h2>Contact Us</h2>
+      <p>Reach out to us for any inquiries or feedback.</p>
+      <div class="row">
+        <div class="col information">
+          <div class="contact-details">
+            <p><i class="fas fa-map-marker-alt"></i> 55 Golf Street, Forest Hill, Johannesburg South, ZA 2190</p>
+            <p><i class="fas fa-envelope"></i> stenakfreight@gmail.com</p>
+            <p><i class="fas fa-phone"></i> +27710578532</p>
+            <p><i class="fas fa-clock"></i> Monday - Friday: 7:00 AM - 8:00 PM</p>
+            <p><i class="fas fa-clock"></i> Saturday: 7:00 AM - 6:00 PM</p>
+            <p><i class="fas fa-clock"></i> Sunday: 7:00 AM - 6:00 PM</p>
+            <p><i class="fas fa-globe"></i> stenakfreight.co.za</p>
+          </div>          
+        </div>
+        <div class="col form">
+          <form onsubmit="sendMail(); reset(); return false;">
+            <input type="text" placeholder="Name*" require id="name">
+            <input type="email" placeholder="Email*" required id="email">
+            <input type="phone" placeholder="Phone*" required id="phone">
+            <textarea placeholder="Message*" required id="message"></textarea>
+            <button id="submit" type="submit">Send Message</button>
+          </form>
+        </div>
+      </div>
+     
+    </section>
+
+    <footer>
+      <div>
+        <span>DSIDETECH 2023</span>
+        <span class="link">
+            <a href="#">Home</a>
+            <a href="#contact">Contact</a>
+        </span>
+      </div>
+    </footer>
+    <script type="text/javascript"
+        src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js">
+</script>
+<script type="text/javascript">
+   (function(){
+      emailjs.init("ApBPhLfTwgQ5OmoqP");
+   })();
+
+   function sendMail(){
+    var params = {
+        name: document.getElementById("name").value,
+        email: document.getElementById("email").value,
+        phone: document.getElementById("phone").value,
+        message: document.getElementById("message").value,
+    };
+
+const serviceID = "service_179e1tv";
+const templeteID ="template_3av948d";
+
+emailjs.send(serviceID, templeteID, params)
+.then(
+    res => {
+        document.getElementById("name").value = "",
+        document.getElementById("email").value = "",
+        document.getElementById("phone").value = "",
+        document.getElementById("message").value = "",
+        console.log(res);
+        alert("Message Sent Successfully");
+    }
+)
+.catch((err)=>console.log(err))
+}
+</script>
+    </script>
+  </body>
+</html>
